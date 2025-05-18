@@ -74,8 +74,8 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         page_height = page.rect.height
 
         # Posición dinámica desde el borde inferior derecho
-        margin_x = 40
-        margin_y = 40
+        margin_x = 30
+        margin_y = 30
         x0 = page_width - sig_width - margin_x
         y0 = page_height - sig_height - margin_y
 
