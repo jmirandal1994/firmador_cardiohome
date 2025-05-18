@@ -64,7 +64,7 @@ def insert_signature(pdf_data, signature_path, doctora=None):
     # Tamaños personalizados por doctora
     tamaños_firma = {
         'priscilla': (150, 60),
-        'adriana': (280, 125),
+        'adriana': (300, 150),
         'yngrid': (220, 90),
         'carolina': (180, 80)
     }
