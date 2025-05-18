@@ -74,7 +74,7 @@ def insert_signature(pdf_data, signature_path, doctora=None):
 
     for page in doc:
         x0 = 320
-        y0 = 650
+        y0 = 630
         sig_rect = fitz.Rect(x0, y0, x0 + sig_width, y0 + sig_height)
         page.insert_image(sig_rect, pixmap=signature, overlay=True)
 
