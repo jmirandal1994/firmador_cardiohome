@@ -38,7 +38,7 @@ def upload():
         if file.filename.endswith('.pdf'):
             filename = secure_filename(file.filename)
             pdf_bytes = file.read()
-            signed_pdf = insert_signature(pdf_bytes, signature_path)
+            signed_pdf = insert_signature(pdf_bytes, signature_path, doctora)
             signed_filename = f"signed_{doctora}_{filename}"
             signed_pdfs.append((signed_filename, signed_pdf))
 
@@ -57,12 +57,20 @@ def upload():
     zip_name = f"documentos_firmados_{doctora}_{fecha}.zip"
     return send_file(zip_buffer, as_attachment=True, download_name=zip_name, mimetype='application/zip')
 
-def insert_signature(pdf_data, signature_path):
+def insert_signature(pdf_data, signature_path, doctora=None):
     doc = fitz.open(stream=pdf_data, filetype="pdf")
     signature = fitz.Pixmap(signature_path)
 
-    sig_width = 110
-    sig_height = 50
+    # Tamaños personalizados por doctora
+    tamaños_firma = {
+        'priscilla': (150, 60),
+        'adriana': (140, 50),
+        'yngrid': (180, 80),
+        'carolina': (160, 65)
+    }
+
+    # Usa el tamaño correspondiente o uno por defecto
+    sig_width, sig_height = tamaños_firma.get(doctora, (120, 50))
 
     for page in doc:
         x0 = 370
