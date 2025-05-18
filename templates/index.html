@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Firmador de PDFs - CardioHome</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 2rem;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 1.5rem;
+        }
+        .box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 1rem auto 1.5rem;
+            width: 100%;
+        }
+        .radio-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+        .radio-option {
+            flex: 1;
+            background: #eef2f7;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            text-align: center;
+            padding: 0.8rem;
+            cursor: pointer;
+            margin: 0 0.4rem;
+            transition: 0.3s;
+        }
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+        .radio-option label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+        }
+        .radio-option.selected {
+            border-color: #1a73e8;
+            background-color: #dbeafe;
+        }
+        button {
+            width: 100%;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 0.9rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #1558b0;
+        }
+    </style>
+</head>
+<body>
+    <img src="/static/cardiohome.png" alt="CardioHome Logo" class="logo">
+
+    <div class="box">
+        <h1>Firmador de PDFs</h1>
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <input type="file" name="pdfs" multiple accept=".pdf" required>
+
+            <div class="radio-group" id="firma-options">
+                <div class="radio-option">
+                    <input type="radio" id="priscilla" name="doctora" value="priscilla" required>
+                    <label for="priscilla">Dra. Priscilla</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="adriana" name="doctora" value="adriana">
+                    <label for="adriana">Dra. Adriana</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="yngrid" name="doctora" value="yngrid">
+                    <label for="yngrid">Dra. Yngrid</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="carolina" name="doctora" value="carolina">
+                    <label for="carolina">Dra. Carolina</label>       
+                </div>
+
+            <button type="submit">Firmar Documentos</button>
+        </form>
+    </div>
+
+    <script>
+        // Añade clase 'selected' visualmente al botón elegido
+        const options = document.querySelectorAll('.radio-option');
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                options.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                option.querySelector('input[type="radio"]').checked = true;
+            });
+        });
+    </script>
+</body>
+</html>
