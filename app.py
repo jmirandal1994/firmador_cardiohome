@@ -25,7 +25,7 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    doctora = request.form.get('doctora')  # Obtener opción de firma
+    doctora = request.form.get('doctora')
     signature_path = FIRMAS.get(doctora)
 
     if not signature_path or not os.path.exists(signature_path):
@@ -46,7 +46,6 @@ def upload():
         filename, filedata = signed_pdfs[0]
         return send_file(filedata, as_attachment=True, download_name=filename, mimetype='application/pdf')
 
-    # Múltiples PDFs → crear archivo ZIP
     zip_buffer = BytesIO()
     with zipfile.ZipFile(zip_buffer, 'w') as zipf:
         for filename, filedata in signed_pdfs:
@@ -61,7 +60,6 @@ def insert_signature(pdf_data, signature_path, doctora=None):
     doc = fitz.open(stream=pdf_data, filetype="pdf")
     signature = fitz.Pixmap(signature_path)
 
-    # Tamaños personalizados por doctora
     tamaños_firma = {
         'priscilla': (150, 60),
         'adriana': (300, 150),
@@ -69,12 +67,18 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         'carolina': (180, 80)
     }
 
-    # Usa el tamaño correspondiente o uno por defecto
     sig_width, sig_height = tamaños_firma.get(doctora, (120, 50))
 
     for page in doc:
-        x0 = 320
-        y0 = 630
+        page_width = page.rect.width
+        page_height = page.rect.height
+
+        # Posición dinámica desde el borde inferior derecho
+        margin_x = 50
+        margin_y = 50
+        x0 = page_width - sig_width - margin_x
+        y0 = page_height - sig_height - margin_y
+
         sig_rect = fitz.Rect(x0, y0, x0 + sig_width, y0 + sig_height)
         page.insert_image(sig_rect, pixmap=signature, overlay=True)
 
