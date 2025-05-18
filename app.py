@@ -56,26 +56,29 @@ def upload():
     zip_name = f"documentos_firmados_{doctora}_{fecha}.zip"
     return send_file(zip_buffer, as_attachment=True, download_name=zip_name, mimetype='application/zip')
 
+
 def insert_signature(pdf_data, signature_path, doctora=None):
     doc = fitz.open(stream=pdf_data, filetype="pdf")
     signature = fitz.Pixmap(signature_path)
 
-    tamaños_firma = {
-        'priscilla': (150, 60),
-        'adriana': (300, 150),
-        'yngrid': (220, 90),
-        'carolina': (180, 80)
+    # Configuración personalizada por doctora
+    propiedades_firma = {
+        'priscilla': {'size': (150, 60), 'margin': (50, 50)},     # (margen_derecha, margen_inferior)
+        'adriana':   {'size': (300, 150), 'margin': (30, 30)},
+        'yngrid':    {'size': (220, 90),  'margin': (55, 50)},
+        'carolina':  {'size': (180, 80),  'margin': (50, 50)},
     }
 
-    sig_width, sig_height = tamaños_firma.get(doctora, (120, 50))
+    defaults = {'size': (120, 50), 'margin': (50, 50)}
+    config = propiedades_firma.get(doctora, defaults)
+
+    sig_width, sig_height = config['size']
+    margin_x, margin_y = config['margin']
 
     for page in doc:
         page_width = page.rect.width
         page_height = page.rect.height
 
-        # Posición dinámica desde el borde inferior derecho
-        margin_x = 30
-        margin_y = 30
         x0 = page_width - sig_width - margin_x
         y0 = page_height - sig_height - margin_y
 
@@ -86,6 +89,7 @@ def insert_signature(pdf_data, signature_path, doctora=None):
     doc.save(output)
     output.seek(0)
     return output
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
