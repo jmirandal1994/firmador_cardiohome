@@ -37,18 +37,19 @@
         }
         .radio-group {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
+            gap: 0.5rem;
             margin-bottom: 1.5rem;
         }
         .radio-option {
-            flex: 1;
+            flex: 1 1 45%;
             background: #eef2f7;
             border: 2px solid transparent;
             border-radius: 8px;
             text-align: center;
             padding: 0.8rem;
             cursor: pointer;
-            margin: 0 0.4rem;
             transition: 0.3s;
         }
         .radio-option input[type="radio"] {
@@ -104,6 +105,11 @@
                     <input type="radio" id="carolina" name="doctora" value="carolina">
                     <label for="carolina">Dra. Carolina</label>       
                 </div>
+                <div class="radio-option">
+                    <input type="radio" id="yetzalia" name="doctora" value="yetzalia">
+                    <label for="yetzalia">Dra. Yetzalia</label>
+                </div>
+            </div>
 
             <button type="submit">Firmar Documentos</button>
         </form>
