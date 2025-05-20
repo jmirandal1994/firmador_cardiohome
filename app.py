@@ -14,7 +14,8 @@ FIRMAS = {
     'priscilla': 'static/firma_priscilla.png',
     'adriana': 'static/firma_adriana.png',
     'yngrid': 'static/firma_yngrid.png',
-    'carolina': 'static/firma_carolina.png'
+    'carolina': 'static/firma_carolina.png',
+    'yetzalia': 'static/firma_yetzalia.png'
 }
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -63,10 +64,11 @@ def insert_signature(pdf_data, signature_path, doctora=None):
 
     # Configuración personalizada por doctora
     propiedades_firma = {
-        'priscilla': {'size': (150, 60), 'margin': (50, 50)},     # (margen_derecha, margen_inferior)
+        'priscilla': {'size': (150, 60), 'margin': (50, 50)},
         'adriana':   {'size': (300, 150), 'margin': (30, 30)},
         'yngrid':    {'size': (220, 90),  'margin': (55, 50)},
         'carolina':  {'size': (180, 80),  'margin': (50, 50)},
+        'yetzalia':  {'size': (200, 85),  'margin': (50, 50)}
     }
 
     defaults = {'size': (120, 50), 'margin': (50, 50)}
