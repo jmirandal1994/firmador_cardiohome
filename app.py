@@ -70,7 +70,7 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         'yngrid':    {'size': (220, 90),  'margin': (55, 50)},
         'carolina':  {'size': (180, 80),  'margin': (50, 50)},
         'yetzalia':  {'size': (200, 85),  'margin': (50, 50)},
-        'teran':     {'size': (150, 60),  'margin': (45, 45)}  # Configuración personalizada
+        'teran':     {'size': (150, 60),  'margin': (55, 55)}  # Configuración personalizada
     }
 
     defaults = {'size': (120, 50), 'margin': (50, 50)}
