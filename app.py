@@ -15,7 +15,8 @@ FIRMAS = {
     'adriana': 'static/firma_adriana.png',
     'yngrid': 'static/firma_yngrid.png',
     'carolina': 'static/firma_carolina.png',
-    'yetzalia': 'static/firma_yetzalia.png'
+    'yetzalia': 'static/firma_yetzalia.png',
+    'teran': 'static/firma_teran.png'  # Nueva firma agregada
 }
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -68,7 +69,8 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         'adriana':   {'size': (300, 150), 'margin': (30, 30)},
         'yngrid':    {'size': (220, 90),  'margin': (55, 50)},
         'carolina':  {'size': (180, 80),  'margin': (50, 50)},
-        'yetzalia':  {'size': (200, 85),  'margin': (50, 50)}
+        'yetzalia':  {'size': (200, 85),  'margin': (50, 50)},
+        'teran':     {'size': (200, 90),  'margin': (50, 50)}  # Configuración personalizada
     }
 
     defaults = {'size': (120, 50), 'margin': (50, 50)}
@@ -96,7 +98,6 @@ def insert_signature(pdf_data, signature_path, doctora=None):
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
-
 
 
 
