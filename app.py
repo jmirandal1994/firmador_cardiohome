@@ -16,7 +16,8 @@ FIRMAS = {
     'yngrid': 'static/firma_yngrid.png',
     'carolina': 'static/firma_carolina.png',
     'yetzalia': 'static/firma_yetzalia.png',
-    'teran': 'static/firma_teran.png'  # Nueva firma agregada
+    'teran': 'static/firma_teran.png',
+    'sara': 'static/firma_sara.png'  # Nueva firma agregada
 }
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -70,7 +71,8 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         'yngrid':    {'size': (220, 90),  'margin': (90, 110)},
         'carolina':  {'size': (180, 80),  'margin': (50, 50)},
         'yetzalia':  {'size': (200, 85),  'margin': (50, 50)},
-        'teran':     {'size': (180, 80),  'margin': (95, 58)}  # Configuración personalizada
+        'teran':     {'size': (180, 80),  'margin': (95, 58)},
+        'sara':      {'size': (200, 85),  'margin': (50, 50)}  # Configuración personalizada para Sara
     }
 
     defaults = {'size': (120, 50), 'margin': (50, 50)}
