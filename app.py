@@ -72,7 +72,7 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         'carolina':  {'size': (180, 80),  'margin': (50, 50)},
         'yetzalia':  {'size': (200, 85),  'margin': (50, 50)},
         'teran':     {'size': (180, 80),  'margin': (95, 58)},
-        'sara':      {'size': (200, 85),  'margin': (95, 58)}  # Configuración personalizada para Sara
+        'sara':      {'size': (200, 85),  'margin': (110, 58)}  # Configuración personalizada para Sara
     }
 
     defaults = {'size': (120, 50), 'margin': (50, 50)}
