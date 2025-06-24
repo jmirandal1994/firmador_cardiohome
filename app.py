@@ -9,7 +9,6 @@ from datetime import datetime
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
 
-# Diccionario de firmas disponibles
 FIRMAS = {
     'priscilla': 'static/firma_priscilla.png',
     'adriana': 'static/firma_adriana.png',
@@ -19,8 +18,9 @@ FIRMAS = {
     'teran': 'static/firma_teran.png',
     'sara': 'static/firma_sara.png',
     'valderas': 'static/firma_valderas.png',
-    'simon': 'static/firma_simon.png'
-    'Timbre Adriana': 'static/firma_lugo.png'# Nueva firma de Simón}
+    'simon': 'static/firma_simon.png',
+    'Timbre Adriana': 'static/firma_lugo.png'  # Nueva firma
+}
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
