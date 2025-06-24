@@ -19,8 +19,8 @@ FIRMAS = {
     'teran': 'static/firma_teran.png',
     'sara': 'static/firma_sara.png',
     'valderas': 'static/firma_valderas.png',
-    'simon': 'static/firma_simon.png'  # Nueva firma de Simón
-}
+    'simon': 'static/firma_simon.png'
+    'Timbre Adriana': 'static/firma_lugo.png'# Nueva firma de Simón}
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -76,6 +76,7 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         'teran':     {'size': (180, 80),  'margin': (95, 58)},
         'sara':      {'size': (200, 85),  'margin': (125, 58)},
         'valderas':  {'size': (180, 80),  'margin': (60, 60)},
+        'Timbre Adriana':  {'size': (180, 80),  'margin': (60, 60)},
         'simon':     {'size': (140, 50),  'margin': (45, 130)}  # Configuración de Simón
     }
 
