@@ -76,7 +76,7 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         'teran':     {'size': (180, 80),  'margin': (95, 58)},
         'sara':      {'size': (200, 85),  'margin': (125, 58)},
         'valderas':  {'size': (180, 80),  'margin': (60, 60)},
-        'Timbre Adriana':  {'size': (180, 80),  'margin': (60, 60)},
+        'Timbre Adriana':  {'size': (150, 60),  'margin': (60, 80)},
         'simon':     {'size': (140, 50),  'margin': (45, 130)}  # Configuración de Simón
     }
 
