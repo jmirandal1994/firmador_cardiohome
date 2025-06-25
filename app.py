@@ -79,7 +79,7 @@ def insert_signature(pdf_data, signature_path, doctora=None):
         'valderas':  {'size': (180, 80),  'margin': (60, 60)},
         'Timbre Adriana':  {'size': (150, 60),  'margin': (70, 110)},
         'simon':     {'size': (140, 50),  'margin': (45, 130)},
-        'maribel':   {'size': (180, 80),  'margin': (60, 60)}  # Configuración de Maribel
+        'maribel':   {'size': (180, 80),  'margin': (60, 75)}  # Configuración de Maribel
     }
 
     defaults = {'size': (120, 50), 'margin': (50, 50)}
